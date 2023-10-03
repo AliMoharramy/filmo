@@ -1,13 +1,93 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans+Arabic&display=swap");
+* {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  color: #dde6ed;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  background-color: #434546;
+}
+.navbar {
+  margin: 0.5rem auto;
+  width: 80%;
+  background-color: #526d82;
+  border: none;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem;
+}
+.logo {
+  font-size: 2rem;
+  font-family: "Lilita One", cursive;
+  margin-left: 1rem;
+}
+.search {
+  border: none;
+  background-color: #7d93a5;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+.search:focus {
+  outline: none;
+}
+.container {
+  display: grid;
+  width: 80%;
+  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.movies,
+.fav-details {
+  background-color: #526d82;
+  border-radius: 20px;
+  min-height: 90vh;
+  padding: 1.5rem;
+  height: 120vh;
+  overflow: scroll;
+}
+.movies {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.movie-show {
+  height: 300px;
+  background-color: #2f3f4b;
+  list-style-type: none;
+  cursor: pointer;
+}
+.movie-show img {
+  width: 100%;
+  height: 100%;
+}
+.details img {
+  width: 100%;
+}
+.catalog {
+  text-align: center;
+  background-color: #2f3f4b;
+  padding: 1rem;
+}
+.details p {
+  margin: 0.5rem 0;
+}
+.star {
+  background-color: #2f3f4b;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+.info p {
+  margin: 1rem 0;
+}
+.Loading {
+  text-align: center;
+  font-size: 1.5rem;
 }
