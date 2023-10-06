@@ -5,7 +5,7 @@ import MoviesList from "./MoviesList";
 import FavDetails from "./FavDetails";
 
 export default function App() {
-  const [searchItem, setSearchItem] = useState("");
+  const [searchItem, setSearchItem] = useState("inception");
   const [selectedID, setSelectedID] = useState("");
 
   function handleSelectedMovie(id) {

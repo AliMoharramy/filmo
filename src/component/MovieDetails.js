@@ -1,3 +1,4 @@
+import StarRating from "./StarRating";
 export default function MovieDetails({ moviData }) {
   return (
     <div className="details">
@@ -12,7 +13,9 @@ export default function MovieDetails({ moviData }) {
           <span>⭐</span> {moviData.imdbRating} IMDb rating
         </p>
       </div>
-      <div className="star">⭐⭐⭐⭐⭐⭐⭐⭐</div>
+      <div className="star">
+        <StarRating maxRating={10} />
+      </div>
       <div className="info">
         <p>{moviData.Plot}</p>
         <p>Starring {moviData.Actors}</p>

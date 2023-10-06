@@ -57,6 +57,10 @@ html {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  justify-items: center;
+}
+.movie-container p {
+  grid-column-start: 2;
 }
 .movie-show {
   height: 300px;
@@ -83,6 +87,8 @@ html {
   background-color: #2f3f4b;
   padding: 1rem;
   margin: 1.5rem 0;
+  display: flex;
+  flex-direction: row;
 }
 .info p {
   margin: 1rem 0;
@@ -90,4 +96,10 @@ html {
 .Loading {
   text-align: center;
   font-size: 1.5rem;
+}
+.showRating {
+  padding-left: 1rem;
+  margin: 0 !important;
+  display: flex;
+  align-items: center;
 }
