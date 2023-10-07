@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieDetails from "./MovieDetails";
 import Loading from "./Loading";
+import Favorite from "./Favorite";
 
 const KEY = "c1815308";
 
@@ -25,11 +26,12 @@ export default function FavDetails({ selectedID }) {
   );
   return (
     <div className="fav-details">
-      {isLoading ? (
+      <Favorite />
+      {/* {isLoading ? (
         <Loading />
       ) : (
         moviData.Response === "True" && <MovieDetails moviData={moviData} />
-      )}
+      )} */}
     </div>
   );
 }

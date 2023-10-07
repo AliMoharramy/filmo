@@ -4,32 +4,35 @@ export default function StarRating({
   maxRating = 5,
   color = "yellow",
   size = 24,
+  onHandleRating,
+  rating,
 }) {
   const [isFull, setIsFull] = useState(0);
-  const [rating, setRating] = useState(0);
 
-  function handleRating(num) {
-    setRating(num);
+  function ratingHandler(num) {
+    onHandleRating(num);
   }
   return (
-    <>
+    <div className="star">
       {Array.from({ length: maxRating }, (_, i) => (
         <Star
           key={i}
           color={color}
           size={size}
-          onHandlRating={handleRating}
+          onRatingHandle={ratingHandler}
           num={i + 1}
           isFull={isFull}
           setIsFull={setIsFull}
           rating={rating}
         />
       ))}
-      <p className="showRating">{isFull ? isFull : rating}</p>
-    </>
+      <p className="showRating" style={{ color: `${color}` }}>
+        {isFull ? isFull : rating}
+      </p>
+    </div>
   );
 }
-function Star({ color, size, onHandlRating, num, isFull, setIsFull, rating }) {
+function Star({ color, size, onRatingHandle, num, isFull, setIsFull, rating }) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
@@ -41,7 +44,7 @@ function Star({ color, size, onHandlRating, num, isFull, setIsFull, rating }) {
       style={starStyle}
       onMouseOver={() => setIsFull(num)}
       onMouseLeave={() => setIsFull(rating)}
-      onClick={() => onHandlRating(num)}
+      onClick={() => onRatingHandle(num)}
     >
       {isFull < num ? (
         <svg

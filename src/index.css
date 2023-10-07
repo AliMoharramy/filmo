@@ -83,12 +83,27 @@ html {
 .details p {
   margin: 0.5rem 0;
 }
-.star {
+.addWatched {
   background-color: #2f3f4b;
   padding: 1rem;
   margin: 1.5rem 0;
+}
+.star {
   display: flex;
   flex-direction: row;
+}
+.add-favorite {
+  width: 100%;
+  background-color: #7d93a5;
+  color: black;
+  border: none;
+  margin-top: 1rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.add-favorite:hover {
+  background-color: #6f8393;
 }
 .info p {
   margin: 1rem 0;
@@ -102,4 +117,15 @@ html {
   margin: 0 !important;
   display: flex;
   align-items: center;
+}
+.favorite-title {
+  background-color: #7d93a5;
+  padding: 1rem;
+  width: 100%;
+}
+.favorite-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1rem 0;
 }
