@@ -129,3 +129,26 @@ html {
   flex-wrap: wrap;
   padding: 1rem 0;
 }
+.watched-movies img {
+  width: 50%;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+.watchedMovie {
+  position: relative;
+  display: block;
+}
+.watched-movie-data {
+  background: rgba(82, 109, 130, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  height: 50%;
+  width: 50%;
+  padding: 0.5rem;
+  position: absolute;
+  bottom: 0;
+}
+.watched-movie-data p {
+  margin-bottom: 0.5rem;
+}

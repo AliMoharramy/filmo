@@ -8,6 +8,15 @@ const KEY = "c1815308";
 export default function FavDetails({ selectedID }) {
   const [moviData, setMovieData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [watchedList, setWatchedList] = useState([]);
+  const [isClose, setIsClose] = useState(true);
+
+  function handleClose(value) {
+    setIsClose(value);
+  }
+  function handleWatchedMovie(id) {
+    setWatchedList([...watchedList, id]);
+  }
 
   useEffect(
     function () {
@@ -26,12 +35,16 @@ export default function FavDetails({ selectedID }) {
   );
   return (
     <div className="fav-details">
-      <Favorite />
-      {/* {isLoading ? (
-        <Loading />
-      ) : (
-        moviData.Response === "True" && <MovieDetails moviData={moviData} />
-      )} */}
+      {isClose && (
+        <Favorite watchedList={watchedList} onhandleClose={handleClose} />
+      )}
+      {!isClose && isLoading && <Loading />}
+      {!isClose && !isLoading && moviData.Response === "True" && (
+        <MovieDetails
+          moviData={moviData}
+          onHandleWathched={handleWatchedMovie}
+        />
+      )}
     </div>
   );
 }

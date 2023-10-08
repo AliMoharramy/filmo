@@ -1,6 +1,6 @@
 import { useState } from "react";
 import StarRating from "./StarRating";
-export default function MovieDetails({ moviData }) {
+export default function MovieDetails({ moviData, onHandleWathched }) {
   const [rating, setRating] = useState(0);
 
   function handlRating(rate) {
@@ -27,7 +27,12 @@ export default function MovieDetails({ moviData }) {
           color="orange"
         />
         {rating !== 0 ? (
-          <button className="add-favorite">+Add List</button>
+          <button
+            className="add-favorite"
+            onClick={() => onHandleWathched({ ...moviData, rating: rating })}
+          >
+            +Add List
+          </button>
         ) : null}
       </div>
       <div className="info">
