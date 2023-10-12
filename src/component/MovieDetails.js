@@ -1,11 +1,23 @@
 import { useState } from "react";
 import StarRating from "./StarRating";
-export default function MovieDetails({ moviData, onHandleWathched }) {
+export default function MovieDetails({
+  moviData,
+  onHandleWathched,
+  setIsClose,
+  watchedList,
+}) {
   const [rating, setRating] = useState(0);
 
   function handlRating(rate) {
     setRating(rate);
   }
+
+  const fullStar = watchedList.find(
+    (item) => item.imdbID === moviData.imdbID
+  )?.rating;
+
+  if (fullStar && rating !== fullStar) handlRating(fullStar);
+
   return (
     <div className="details">
       <img src={moviData.Poster} alt="" />
@@ -25,11 +37,15 @@ export default function MovieDetails({ moviData, onHandleWathched }) {
           onHandleRating={handlRating}
           rating={rating}
           color="orange"
+          fulled={fullStar}
         />
-        {rating !== 0 ? (
+        {!fullStar && rating !== 0 ? (
           <button
             className="add-favorite"
-            onClick={() => onHandleWathched({ ...moviData, rating: rating })}
+            onClick={() => {
+              onHandleWathched({ ...moviData, rating: rating });
+              setIsClose(true);
+            }}
           >
             +Add List
           </button>

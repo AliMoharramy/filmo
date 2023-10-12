@@ -5,11 +5,10 @@ import Favorite from "./Favorite";
 
 const KEY = "c1815308";
 
-export default function FavDetails({ selectedID }) {
+export default function FavDetails({ selectedID, isClose, setIsClose }) {
   const [moviData, setMovieData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [watchedList, setWatchedList] = useState([]);
-  const [isClose, setIsClose] = useState(true);
 
   function handleClose(value) {
     setIsClose(value);
@@ -43,6 +42,8 @@ export default function FavDetails({ selectedID }) {
         <MovieDetails
           moviData={moviData}
           onHandleWathched={handleWatchedMovie}
+          setIsClose={setIsClose}
+          watchedList={watchedList}
         />
       )}
     </div>

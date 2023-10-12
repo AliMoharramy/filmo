@@ -10,7 +10,7 @@ export default function WatchedMovies({ watchedList, onhandleClose }) {
           />
           <div className="watched-movie-data">
             <p>{watchedList[i].Title}</p>
-            <p>⭐️ 6.80</p>
+            <p>⭐️ {watchedList[i].imdbRating}</p>
             <p>🌟 {watchedList[i].rating}</p>
           </div>
         </div>

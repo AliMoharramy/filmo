@@ -5,11 +5,13 @@ import MoviesList from "./MoviesList";
 import FavDetails from "./FavDetails";
 
 export default function App() {
-  const [searchItem, setSearchItem] = useState("inception");
+  const [searchItem, setSearchItem] = useState("");
   const [selectedID, setSelectedID] = useState("");
+  const [isClose, setIsClose] = useState(true);
 
   function handleSelectedMovie(id) {
     setSelectedID(id);
+    setIsClose(false);
   }
 
   function handleSetItem(value) {
@@ -24,7 +26,11 @@ export default function App() {
           onhandleSelectedMovie={handleSelectedMovie}
           searchItem={searchItem}
         />
-        <FavDetails selectedID={selectedID} />
+        <FavDetails
+          selectedID={selectedID}
+          isClose={isClose}
+          setIsClose={setIsClose}
+        />
       </Main>
     </>
   );

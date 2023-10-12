@@ -6,8 +6,9 @@ export default function StarRating({
   size = 24,
   onHandleRating,
   rating,
+  fulled = 0,
 }) {
-  const [isFull, setIsFull] = useState(0);
+  const [isFull, setIsFull] = useState(fulled);
 
   function ratingHandler(num) {
     onHandleRating(num);
