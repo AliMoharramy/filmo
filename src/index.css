@@ -1,17 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans+Arabic&display=swap");
+:root {
+  --bg-color: #323437;
+  --main-color: #e2b714;
+  --sub-color: #646669;
+  --sub-alt-color: #2c2e31;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: #dde6ed;
 }
 html {
-  background-color: #434546;
+  background-color: var(--bg-color);
+  color: var(--main-color);
 }
 .navbar {
   margin: 0.5rem auto;
   width: 80%;
-  background-color: #526d82;
+  background-color: var(--sub-alt-color);
   border: none;
   border-radius: 20px;
   display: grid;
@@ -25,10 +32,11 @@ html {
 }
 .search {
   border: none;
-  background-color: #7d93a5;
+  background-color: var(--sub-color);
   padding: 0.4rem 0.8rem;
   font-size: 1.5rem;
   border-radius: 10px;
+  color: var(--main-color);
 }
 .search:focus {
   outline: none;
@@ -42,12 +50,13 @@ html {
 }
 .movies,
 .fav-details {
-  background-color: #526d82;
+  background-color: var(--sub-alt-color);
   border-radius: 20px;
   min-height: 90vh;
   padding: 1.5rem;
   height: 120vh;
   overflow: scroll;
+  position: relative;
 }
 .movies {
   grid-column-start: 1;
@@ -64,27 +73,29 @@ html {
 }
 .movie-show {
   height: 300px;
-  background-color: #2f3f4b;
+  background-color: var(--sub-alt-color);
   list-style-type: none;
   cursor: pointer;
 }
 .movie-show img {
   width: 100%;
   height: 100%;
+  text-align: center;
 }
 .details img {
   width: 100%;
 }
 .catalog {
   text-align: center;
-  background-color: #2f3f4b;
+  background-color: var(--sub-alt-color);
+  color: var(--main-color);
   padding: 1rem;
 }
 .details p {
   margin: 0.5rem 0;
 }
 .addWatched {
-  background-color: #2f3f4b;
+  background-color: var(--bg-color);
   padding: 1rem;
   margin: 1.5rem 0;
 }
@@ -94,7 +105,7 @@ html {
 }
 .add-favorite {
   width: 100%;
-  background-color: #7d93a5;
+  background-color: var(--sub-alt-color);
   color: black;
   border: none;
   margin-top: 1rem;
@@ -103,7 +114,7 @@ html {
   cursor: pointer;
 }
 .add-favorite:hover {
-  background-color: #6f8393;
+  background-color: var(--sub-color);
 }
 .info p {
   margin: 1rem 0;
@@ -119,7 +130,7 @@ html {
   align-items: center;
 }
 .favorite-title {
-  background-color: #7d93a5;
+  background-color: var(--bg-color);
   padding: 1rem;
   width: 100%;
 }
@@ -140,7 +151,7 @@ html {
 }
 .watched-movie-data {
   background: rgba(82, 109, 130, 0.3);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(135, 95, 31, 0.37);
   backdrop-filter: blur(5.5px);
   -webkit-backdrop-filter: blur(9.5px);
   height: 50%;
@@ -148,7 +159,65 @@ html {
   padding: 0.5rem;
   position: absolute;
   bottom: 0;
+  color: white;
+  font-weight: bold;
 }
 .watched-movie-data p {
   margin-bottom: 0.5rem;
+}
+.closeItem {
+  padding: 0.3rem 1rem;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 30%;
+  position: absolute;
+  left: 12px;
+  top: 15px;
+  cursor: pointer;
+}
+
+/* Responsive query */
+
+@media only screen and (max-width: 1200px) {
+  .movie-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .movie-container p {
+    grid-column: 1/3;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .navbar {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .logo {
+    margin-bottom: 1rem;
+  }
+  .search {
+    width: 80%;
+    margin: auto;
+  }
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .closeMovies {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    width: 95%;
+  }
+  .search {
+    width: 90%;
+  }
+  .container {
+    width: 95%;
+  }
+  .movie-container {
+    grid-template-columns: 1fr;
+  }
 }

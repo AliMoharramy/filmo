@@ -9,6 +9,9 @@ export default function App() {
   const [selectedID, setSelectedID] = useState("");
   const [isClose, setIsClose] = useState(true);
 
+  if (isClose === false) {
+  }
+
   function handleSelectedMovie(id) {
     setSelectedID(id);
     setIsClose(false);
@@ -23,6 +26,7 @@ export default function App() {
       <Header onhandleSetItem={handleSetItem} />
       <Main>
         <MoviesList
+          isClose={isClose}
           onhandleSelectedMovie={handleSelectedMovie}
           searchItem={searchItem}
         />

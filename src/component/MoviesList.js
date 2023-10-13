@@ -5,7 +5,11 @@ import Message from "./Message";
 
 const KEY = "c1815308";
 
-export default function MoviesList({ onhandleSelectedMovie, searchItem }) {
+export default function MoviesList({
+  onhandleSelectedMovie,
+  searchItem,
+  isClose,
+}) {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +38,7 @@ export default function MoviesList({ onhandleSelectedMovie, searchItem }) {
   );
 
   return (
-    <div className="movies">
+    <div className={`movies ${isClose === false ? "closeMovies" : ""}`}>
       <ul className="movie-container">
         {isLoading && <Loading />}
         {!isLoading &&

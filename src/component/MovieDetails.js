@@ -5,6 +5,7 @@ export default function MovieDetails({
   onHandleWathched,
   setIsClose,
   watchedList,
+  onhandleClose,
 }) {
   const [rating, setRating] = useState(0);
 
@@ -20,6 +21,9 @@ export default function MovieDetails({
 
   return (
     <div className="details">
+      <button className="closeItem" onClick={() => onhandleClose(true)}>
+        X
+      </button>
       <img src={moviData.Poster} alt="" />
       <div className="catalog">
         <h2>{moviData.Title}</h2>
@@ -36,7 +40,7 @@ export default function MovieDetails({
           maxRating={10}
           onHandleRating={handlRating}
           rating={rating}
-          color="orange"
+          color="#DFFF00"
           fulled={fullStar}
         />
         {!fullStar && rating !== 0 ? (

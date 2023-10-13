@@ -44,6 +44,7 @@ export default function FavDetails({ selectedID, isClose, setIsClose }) {
           onHandleWathched={handleWatchedMovie}
           setIsClose={setIsClose}
           watchedList={watchedList}
+          onhandleClose={handleClose}
         />
       )}
     </div>
